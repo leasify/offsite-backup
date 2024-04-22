@@ -3,11 +3,11 @@
 # Leasify AB, Andreas Ek, 2024-04-22
 
 now=$(date +"%Y-%m-%d")
-mkdir -p ${now}
-mkdir -p ${now}/leasify-trunk-1
-mkdir -p ${now}/leasify-backups
+mkdir -p /backup/${now}
+mkdir -p /backup/${now}/leasify-trunk-1
+mkdir -p /backup/${now}/leasify-backups
 
-aws s3 sync s3://leasify-trunk-1 ${now}/leasify-trunk-1
-aws s3 sync s3://leasify-backups ${now}/leasify-backup
+aws s3 sync s3://leasify-trunk-1 /backup/${now}/leasify-trunk-1
+aws s3 sync s3://leasify-backups /backup/${now}/leasify-backup
 
-find . -type d -mtime +30 -exec rm -rf {} \;
+find /backup -type d -mtime +30 -exec rm -rf {} \;

@@ -21,5 +21,7 @@ Run the `./update.sh`
 Run the `./backup.sh`
 
 ## Crontab
+Run `crontab -e`
+
 Install in crontab, eg:
 `0 3 * * * ~/backup.sh`

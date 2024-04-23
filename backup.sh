@@ -8,11 +8,12 @@ sudo mkdir -p /backup/${now}/leasify-trunk-1
 sudo mkdir -p /backup/${now}/leasify-backups
 
 yday=$(date --date "yesterday" "%Y-%m-%d")
+echo "${yday}"
 
-sudo cp -Rf /backup/${yday}/leasify-trunk-1 /backup/${now}/leasify-trunk-1
-sudo cp -Rf /backup/${yday}/leasify-backups /backup/${now}/leasify-backups
+#sudo cp -Rf /backup/${yday}/leasify-trunk-1 /backup/${now}/leasify-trunk-1
+#sudo cp -Rf /backup/${yday}/leasify-backups /backup/${now}/leasify-backups
 
-sudo aws s3 sync s3://leasify-trunk-1 /backup/${now}/leasify-trunk-1
-sudo aws s3 sync s3://leasify-backups /backup/${now}/leasify-backup
+#sudo aws s3 sync s3://leasify-trunk-1 /backup/${now}/leasify-trunk-1
+#sudo aws s3 sync s3://leasify-backups /backup/${now}/leasify-backup
 
-sudo find /backup -type d -mtime +30 -exec sudo rm -rf {} \;
+#sudo find /backup -type d -mtime +30 -exec sudo rm -rf {} \;

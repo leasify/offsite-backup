@@ -7,7 +7,7 @@ sudo mkdir -p /backup/${now}
 sudo mkdir -p /backup/${now}/leasify-trunk-1
 sudo mkdir -p /backup/${now}/leasify-backups
 
-yday=$(date --date "yesterday" "%Y-%m-%d")
+yday=$(date --date "yesterday" +"%Y-%m-%d")
 echo "${yday}"
 
 #sudo cp -Rf /backup/${yday}/leasify-trunk-1 /backup/${now}/leasify-trunk-1

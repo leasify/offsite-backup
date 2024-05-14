@@ -15,15 +15,12 @@ sudo mkdir -p /backup/${now}
 sudo mkdir -p /backup/${now}/leasify-trunk-1
 sudo mkdir -p /backup/${now}/leasify-backups
 
-#sudo cp -Rf "`ls -dtr1 /backup/* | tail -1`" /backup/${now}/leasify-trunk-1
-#sudo cp -Rf "`ls -dtr1 /backup/* | tail -1`" /backup/${now}/leasify-trunk-1
-
 if ! [ "${latest}" = "" ]; then
     sudo cp -Rf ${latest}leasify-trunk-1 /backup/${now}/leasify-trunk-1
     sudo cp -Rf ${latest}leasify-backups /backup/${now}/leasify-backups
 fi
 
-#sudo aws s3 sync s3://leasify-trunk-1 /backup/${now}/leasify-trunk-1
-#sudo aws s3 sync s3://leasify-backups /backup/${now}/leasify-backup
+sudo aws s3 sync s3://leasify-trunk-1 /backup/${now}/leasify-trunk-1
+sudo aws s3 sync s3://leasify-backups /backup/${now}/leasify-backup
 
-#sudo find /backup -type d -mtime +30 -exec sudo rm -rf {} \;
+sudo find /backup -type d -mtime +30 -exec sudo rm -rf {} \;

@@ -8,6 +8,7 @@
 latest=$(ls -td /backup/*/ | head -1)
 
 echo "Latest backup: ${latest}"
+[[ -z "${latest}" ]] && { echo "No latest backup folder found..." ; exit 1; }
 
 #now=$(date +"%Y-%m-%d")
 #sudo mkdir -p /backup/${now}
@@ -17,8 +18,11 @@ echo "Latest backup: ${latest}"
 #sudo cp -Rf "`ls -dtr1 /backup/* | tail -1`" /backup/${now}/leasify-trunk-1
 #sudo cp -Rf "`ls -dtr1 /backup/* | tail -1`" /backup/${now}/leasify-trunk-1
 
-#sudo cp -Rf /backup/${yday}/leasify-trunk-1 /backup/${now}/leasify-trunk-1
-#sudo cp -Rf /backup/${yday}/leasify-backups /backup/${now}/leasify-backups
+#if ! [ "${latest}" = "" ]; then
+#    sudo cp -Rf /backup/${yday}/leasify-trunk-1 /backup/${now}/leasify-trunk-1
+#    sudo cp -Rf /backup/${yday}/leasify-backups /backup/${now}/leasify-backups
+#fi
+
 
 #sudo aws s3 sync s3://leasify-trunk-1 /backup/${now}/leasify-trunk-1
 #sudo aws s3 sync s3://leasify-backups /backup/${now}/leasify-backup

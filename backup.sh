@@ -21,7 +21,7 @@ if ! [ "${latest}" = "" ]; then
     sudo cp -Rf ${latest}leasify-backups /mnt/backup/${now}/leasify-backups
 fi
 
-sudo aws s3 sync s3://leasify-trunk-1 /mnt/backup/${now}/leasify-trunk-1
-sudo aws s3 sync s3://leasify-backups /mnt/backup/${now}/leasify-backup
+sudo aws s3 sync s3://leasify-trunk-1 /mnt/backup/${now}/leasify-trunk-1 --size-only
+sudo aws s3 sync s3://leasify-backups /mnt/backup/${now}/leasify-backup --size-only
 
 sudo find /mnt/backup -type d -mtime +30 -exec sudo rm -rf {} \;

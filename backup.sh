@@ -21,6 +21,9 @@ if ! [ "${latest}" = "" ]; then
     sudo cp -Rf ${latest}leasify-backups /mnt/backup/${now}/leasify-backups
 fi
 
+sudo aws configure set default.region eu-north-1
+sudo aws configure set default.s3.max_concurrent_requests 2000
+
 sudo aws s3 sync s3://leasify-trunk-1 /mnt/backup/${now}/leasify-trunk-1 --size-only
 sudo aws s3 sync s3://leasify-backups /mnt/backup/${now}/leasify-backup --size-only
 
